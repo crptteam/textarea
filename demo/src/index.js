@@ -44,8 +44,8 @@ const Demo = () => (
     <div>disabled</div>
     <TextArea disabled defaultValue="hello" />
     <hr />
-    <div>custom render</div>
-    <TextArea render={customRender} defaultValue={'hello'} />
+    <div>value as func</div>
+    <TextArea disabled defaultValue={() => 'hello'} />
     <hr />
   </React.Fragment>
 );

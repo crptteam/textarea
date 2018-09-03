@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 
 import { TextAreaWrapper } from '../../styled';
 
-import { render } from '../../lib';
-
 export const TextAreaPropTypes = {
   as: PropTypes.oneOfType([
     PropTypes.func,
@@ -13,7 +11,15 @@ export const TextAreaPropTypes = {
   ]),
 
   getProps: PropTypes.func,
-  render: PropTypes.func,
+
+  value: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.string,
+  ]),
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.string,
+  ]),
 
   className: PropTypes.string,
   style: PropTypes.shape({}),
@@ -22,6 +28,5 @@ export const TextAreaPropTypes = {
 
 export const TextAreaDefaultProps = {
   as: TextAreaWrapper,
-  render,
   theme: {},
 };

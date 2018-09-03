@@ -1,5 +1,9 @@
+import React from 'react';
+
 import {
   getComponentProps,
+  getElementType,
+  getChildren,
 } from '@crpt/react-utils';
 
 import {
@@ -10,9 +14,18 @@ import {
 const TextArea = (props) => {
   const componentProps = getComponentProps(TextArea, props);
 
-  const { render, ...passProps } = componentProps;
+  const ElementType = getElementType(componentProps);
 
-  return render(passProps);
+  getChildren(componentProps, {
+    shorthand: ['value', 'defaultValue'],
+    updateProps: (propValue, propName, propObj) => {
+      propObj[propName] = propValue;
+    },
+  });
+
+  return (
+    <ElementType {...componentProps} />
+  );
 };
 
 TextArea.displayName = 'TextArea';
