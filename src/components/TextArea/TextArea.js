@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { set } from 'lodash';
+
 import {
   getComponentProps,
   getElementType,
@@ -18,8 +20,8 @@ const TextArea = (props) => {
 
   getChildren(componentProps, {
     shorthand: ['value', 'defaultValue'],
-    updateProps: (propValue, propName, propObj) => {
-      propObj[propName] = propValue;
+    updateProps: (propValue, propName, ownProps) => {
+      set(ownProps, propName, propValue);
     },
   });
 
